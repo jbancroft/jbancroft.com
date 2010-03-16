@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   Clearance::Routes.draw(map)
   # The priority is based upon order of creation: first created -> highest priority.
-  map.root :controller => 'clearance/sessions', :action => 'new'
+
+  map.resources :posts
+  map.root :controller => 'posts', :action => 'index'
 
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'

@@ -1,0 +1,8 @@
+<%- unless @posts.empty? -%>
+  <%- first_post = @posts.shift -%>
+  <h3><%= first_post.title %></h3>
+  <div><%= first_post.body %></div>
+  <% @posts.each do |post| -%>
+    <h3><%= link_to post.title, post %></h3>
+  <%- end %>
+<%- end -%>
