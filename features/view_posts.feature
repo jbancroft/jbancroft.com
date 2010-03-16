@@ -15,6 +15,6 @@ Feature: View posts
 
 	Scenario: Show a single post as html
 		Given a post with title "Test Title" and body "Test Body"
-		When I visit the page for that post
+		When I view the post
 		Then I should see "Test Title"
 		And I should see "Test Body"
