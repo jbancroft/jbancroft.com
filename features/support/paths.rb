@@ -12,6 +12,11 @@ module NavigationHelpers
       new_password_path
 
     # Add more page name => path mappings here
+    
+    when /the new post page/i
+      new_post_path
+    when /the posts page/i
+      posts_path
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
