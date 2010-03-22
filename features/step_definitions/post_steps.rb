@@ -5,3 +5,7 @@ end
 When /^I view the post$/ do
   visit post_path(@post)
 end
+
+When /^I visit the edit page for the post$/ do
+    visit edit_post_path(@post)
+end

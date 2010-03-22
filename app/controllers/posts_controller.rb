@@ -13,6 +13,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(params[:post])
+      flash[:success] = 'Post updated successfully'
+      redirect_to posts_path
+    else
+      render :action => 'edit'
+    end
+  end
+
   def index
     @posts = Post.all
   end

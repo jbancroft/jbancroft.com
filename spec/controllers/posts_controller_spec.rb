@@ -61,6 +61,66 @@ describe PostsController, 'POST create' do
   end
 end
 
+describe PostsController, 'GET edit' do
+  before(:each) do
+    @post = Factory(:post)
+  end
+
+  it 'assigns @post to the specified post' do
+    get :edit, :id => @post.id
+    assigns[:post].should == @post
+  end
+
+  it 'renders the edit template' do
+    get :edit, :id => @post.id
+    response.should render_template('edit')
+  end
+end
+
+describe PostsController, 'PUT update' do
+  before(:each) do
+    @post = mock_model(Post).as_null_object
+    Post.stub(:find).and_return(@post)
+  end
+
+  context 'when the post updates successfully' do
+    before(:each) do
+      @post.stub(:update_attributes).and_return(true)
+    end
+
+    it 'updates the attributes of the specified post' do
+      @post.should_receive(:update_attributes).with('title' => 'Modified Test Title', 'body' => 'Modified Test Body').and_return(true)
+      put :update, :id => @post.id, :post => { :title => 'Modified Test Title', :body => 'Modified Test Body' }
+    end
+
+    it 'sets the flash with a success message' do
+      put :update, :id => @post.id
+      flash[:success].should == 'Post updated successfully'
+    end
+
+    it 'redirects to the posts page' do
+      put :update
+      response.should redirect_to(posts_path)
+    end
+  end
+
+  context 'when the post fails to update' do
+    before(:each) do
+      @post.stub(:update_attributes).and_return(false)
+    end
+
+    it 'assigns @post' do
+      put :update, :id => @post.id
+      assigns[:post].should == @post
+    end
+
+    it 'renders the edit template' do
+      put :update, :id => @post.id
+      response.should render_template('edit')
+    end
+  end
+end
+
 describe PostsController, 'GET index' do
   it 'assigns @posts to all available posts' do
     @posts = [
@@ -81,14 +141,15 @@ end
 describe PostsController, 'GET show' do
   before(:each) do
     @post = Factory(:post)
-    get :show, :id => @post.id
   end
 
   it 'assigns @post to the requested post' do
+    get :show, :id => @post.id
     assigns[:post].should == @post
   end
 
   it 'renders the show template' do
+    get :show, :id => @post.id
     response.should render_template('show')
   end
 end
