@@ -63,7 +63,13 @@ end
 
 describe PostsController, 'GET edit' do
   before(:each) do
-    @post = Factory(:post)
+    @post = mock_model(Post)
+    Post.stub(:find).and_return(@post)
+  end
+
+  it 'retrieves the post' do
+    Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
+    get :edit, :id => @post.id
   end
 
   it 'assigns @post to the specified post' do
@@ -81,6 +87,16 @@ describe PostsController, 'PUT update' do
   before(:each) do
     @post = mock_model(Post).as_null_object
     Post.stub(:find).and_return(@post)
+  end
+
+  it 'retrieves the post' do
+    Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
+    put :update, :id => @post.id
+  end
+
+  it 'assigns @post' do
+    put :update, :id => @post.id
+    assigns[:post].should == @post
   end
 
   context 'when the post updates successfully' do
@@ -107,11 +123,6 @@ describe PostsController, 'PUT update' do
   context 'when the post fails to update' do
     before(:each) do
       @post.stub(:update_attributes).and_return(false)
-    end
-
-    it 'assigns @post' do
-      put :update, :id => @post.id
-      assigns[:post].should == @post
     end
 
     it 'renders the edit template' do
