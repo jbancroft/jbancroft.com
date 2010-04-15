@@ -78,20 +78,14 @@ describe PostsController, 'GET edit' do
     Post.stub(:find).and_return(@post)
   end
 
-  def do_get
+  it 'retrieves the post' do
+    Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
     get :edit, :id => @post.id
   end
 
-  it 'retrieves the post' do
-    Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
-    do_get
-  end
-
-  it_should_assign :post, @post
-
-  it 'renders the edit template' do
-    do_get
-    response.should render_template('edit')
+  get :edit, lambda { {:id => @post.id} } do
+    should_assign :post => @post
+    should_render 'edit'
   end
 end
 
@@ -101,16 +95,14 @@ describe PostsController, 'PUT update' do
     Post.stub(:find).and_return(@post)
   end
 
-  def do_put
+  it 'retrieves the post' do
+    Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
     put :update, :id => @post.id
   end
 
-  it 'retrieves the post' do
-    Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
-    do_put
+  put :update, lambda { {:id => @post.id} } do
+    should_assign :post => @post
   end
-
-  it_should_assign :post, @post
 
   context 'when the post updates successfully' do
     before(:each) do
@@ -138,26 +130,24 @@ describe PostsController, 'PUT update' do
       @post.stub(:update_attributes).and_return(false)
     end
 
-    it 'renders the edit template' do
-      put :update, :id => @post.id
-      response.should render_template('edit')
+    put :update, lambda { {:id => @post.id} } do
+      should_render 'edit'
     end
   end
 end
 
 describe PostsController, 'GET index' do
-  it 'assigns @posts to all available posts' do
+  before(:each) do
     @posts = [
       mock_model(Post, :title => 'First Post'),
       mock_model(Post, :title => 'Second Post')
     ]
     Post.should_receive(:all).and_return(@posts)
-    get :index
-    assigns[:posts].should == @posts
   end
 
   get :index do
     should_render 'index'
+    should_assign :posts => @posts
   end
 end
 
@@ -166,13 +156,8 @@ describe PostsController, 'GET show' do
     @post = Factory(:post)
   end
 
-  def do_get
-    get :show, :id => @post.id
-  end
-
-  it_should_assign :post, @post
-
   get :show, lambda { {:id => @post.id} } do
     should_render 'show'
+    should_assign :post => @post
   end
 end

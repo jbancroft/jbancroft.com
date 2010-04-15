@@ -55,9 +55,30 @@ module ControllerMacros
     end
   end
 
+  def should_assign(hash)
+    hash.each_pair do |k, v|
+      it "should assign @#{k}" do
+        raise "Variable '@#{k}' was not defined in the spec" if v.nil? && !instance_variables.include?("@#{k}")
+        val ||= instance_variable_get("@#{k}")
+        if v.kind_of?(String) && v.starts_with?("@")
+          val = instance_variable_get(v)
+        end
+        do_request
+        assigns[k].should == val
+      end
+    end
+  end
+
   def get(action, parameters = nil, session = nil, flash = nil)
     define_method :do_request do
       send(:get, action, parameters.nil? ? parameters : instance_eval(&parameters), session, flash)
+    end
+    yield
+  end
+
+  def put(action, parameters = nil, session = nil, flash = nil)
+    define_method :do_request do
+      send(:put, action, parameters.nil? ? parameters : instance_eval(&parameters), session, flash)
     end
     yield
   end
