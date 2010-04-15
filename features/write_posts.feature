@@ -14,6 +14,16 @@ Feature: Write posts
 		And I should be on the posts page
 		And I should see "New Post Title"
 
+	Scenario: Write new invalid post
+		Given I have signed in with "author@example.com/authorpassword"
+		When I go to the new post page
+		And I fill in "Title" with "New Post Title"
+		And I press "Save"
+		Then I should see "There was a problem creating the post"
+		And I should see a form for correcting the errors in the post
+		And the "Title" field should contain "New Post Title"
+		And the "Body" field should contain ""
+
 	Scenario: Edit existing post
 		Given I have signed in with "author@example.com/authorpassword"
 		And a post with title "Test Title" and body "Test Body"

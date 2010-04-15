@@ -9,6 +9,7 @@ class PostsController < ApplicationController
       flash[:success] = 'Post created successfully'
       redirect_to posts_path
     else
+      flash.now[:error] = 'There was a problem creating the post'
       render :new
     end
   end

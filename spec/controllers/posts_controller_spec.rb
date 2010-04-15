@@ -58,6 +58,12 @@ describe PostsController, 'POST create' do
       post :create
       response.should render_template('new')
     end
+
+    it 'sets an error message in the flash' do
+      @controller.instance_eval { flash.extend(DisableFlashSweeping) }
+      post :create
+      flash.now[:error].should == 'There was a problem creating the post'
+    end
   end
 end
 
