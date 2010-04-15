@@ -1,13 +1,17 @@
 require 'spec_helper'
 
 describe PostsController, 'GET new' do
-  it 'assigns @post to a new post' do
+  def do_get
     get :new
+  end
+
+  it 'assigns @post to a new post' do
+    do_get
     assigns[:post].should be_a_new_record
   end
 
   it 'renders the new template' do
-    get :new
+    do_get
     response.should render_template('new')
   end
 end
@@ -49,19 +53,20 @@ describe PostsController, 'POST create' do
       @post.stub(:save).and_return(false)
     end
 
-    it 'assigns @post' do
+    def do_post
       post :create
-      assigns[:post].should == @post
     end
 
+    it_should_assign :post, @post
+
     it 'renders the new template' do
-      post :create
+      do_post
       response.should render_template('new')
     end
 
     it 'sets an error message in the flash' do
       @controller.instance_eval { flash.extend(DisableFlashSweeping) }
-      post :create
+      do_post
       flash.now[:error].should == 'There was a problem creating the post'
     end
   end
@@ -73,18 +78,19 @@ describe PostsController, 'GET edit' do
     Post.stub(:find).and_return(@post)
   end
 
+  def do_get
+    get :edit, :id => @post.id
+  end
+
   it 'retrieves the post' do
     Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
-    get :edit, :id => @post.id
+    do_get
   end
 
-  it 'assigns @post to the specified post' do
-    get :edit, :id => @post.id
-    assigns[:post].should == @post
-  end
+  it_should_assign :post, @post
 
   it 'renders the edit template' do
-    get :edit, :id => @post.id
+    do_get
     response.should render_template('edit')
   end
 end
@@ -95,15 +101,16 @@ describe PostsController, 'PUT update' do
     Post.stub(:find).and_return(@post)
   end
 
-  it 'retrieves the post' do
-    Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
+  def do_put
     put :update, :id => @post.id
   end
 
-  it 'assigns @post' do
-    put :update, :id => @post.id
-    assigns[:post].should == @post
+  it 'retrieves the post' do
+    Post.should_receive(:find).with(@post.id.to_s).and_return(@post)
+    do_put
   end
+
+  it_should_assign :post, @post
 
   context 'when the post updates successfully' do
     before(:each) do
@@ -149,9 +156,8 @@ describe PostsController, 'GET index' do
     assigns[:posts].should == @posts
   end
 
-  it 'renders the index template' do
-    get :index
-    response.should render_template('index')
+  get :index do
+    should_render 'index'
   end
 end
 
@@ -160,13 +166,13 @@ describe PostsController, 'GET show' do
     @post = Factory(:post)
   end
 
-  it 'assigns @post to the requested post' do
+  def do_get
     get :show, :id => @post.id
-    assigns[:post].should == @post
   end
 
-  it 'renders the show template' do
-    get :show, :id => @post.id
-    response.should render_template('show')
+  it_should_assign :post, @post
+
+  get :show, lambda { {:id => @post.id} } do
+    should_render 'show'
   end
 end
