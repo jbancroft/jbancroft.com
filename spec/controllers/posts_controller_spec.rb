@@ -1,18 +1,9 @@
 require 'spec_helper'
 
 describe PostsController, 'GET new' do
-  def do_get
-    get :new
-  end
-
-  it 'assigns @post to a new post' do
-    do_get
-    assigns[:post].should be_a_new_record
-  end
-
-  it 'renders the new template' do
-    do_get
-    response.should render_template('new')
+  get :new do
+    should_assign_new :post, Post
+    should_render 'new'
   end
 end
 
@@ -37,9 +28,9 @@ describe PostsController, 'POST create' do
       @post.stub(:save).and_return(true)
     end
 
-    it 'sets a flash[:success] message' do
-      post :create
-      flash[:success].should == 'Post created successfully'
+    post :create do
+      should_set_the_flash_with :success => 'Post created successfully'
+      should_redirect_to('the posts page') { posts_path }
     end
 
     it 'redirects to the posts page' do
@@ -53,21 +44,10 @@ describe PostsController, 'POST create' do
       @post.stub(:save).and_return(false)
     end
 
-    def do_post
-      post :create
-    end
-
-    it_should_assign :post, @post
-
-    it 'renders the new template' do
-      do_post
-      response.should render_template('new')
-    end
-
-    it 'sets an error message in the flash' do
-      @controller.instance_eval { flash.extend(DisableFlashSweeping) }
-      do_post
-      flash.now[:error].should == 'There was a problem creating the post'
+    post :create do
+      should_assign :post => @post
+      should_render 'new'
+      should_set_the_flash_with :error => 'There was a problem creating the post', :now => true
     end
   end
 end

@@ -13,48 +13,7 @@ require 'webrat/integrations/rspec-rails'
 Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
 
 # Some custom macro modules
-module DisableFlashSweeping
-  def sweep
-  end
-end
-
-module AssignMacro
-  module ExampleMethods
-    def do_action
-      verb = [:get, :post, :put, :delete].find{|verb| respond_to? :"do_#{verb}"}
-      raise "No do_get, do_post_ do_put, or do_delete has been defined!" unless verb
-      send("do_#{verb}")
-    end
-  end
-
-  module ExampleGroupMethods
-    def it_should_assign(variable_name, value=nil)
-      it "should assign #{variable_name} to the view" do
-        raise "Variable '@#{variable_name}' was not defined in the spec" if value.nil? && !instance_variables.include?("@#{variable_name}")
-        value ||= instance_variable_get("@#{variable_name}")
-        if value.kind_of?(String) && value.starts_with?("@")
-          value = instance_variable_get(value)
-        end
-        do_action
-        assigns[variable_name].should == value
-      end
-    end
-  end
-
-  def self.included(receiver)
-    receiver.extend         ExampleGroupMethods
-    receiver.send :include, ExampleMethods
-  end
-end
-
 module ControllerMacros
-  def should_render(template)
-    it "should render the #{template} template" do
-      do_request
-      response.should render_template(template)
-    end
-  end
-
   def should_assign(hash)
     hash.each_pair do |k, v|
       it "should assign @#{k}" do
@@ -69,9 +28,59 @@ module ControllerMacros
     end
   end
 
+  def should_assign_new(variable_name, klass = nil)
+    it "should assign @#{variable_name} to a new record" do
+      do_request
+      assigns[variable_name].should be_a_new_record
+      assigns[variable_name].should be_a_kind_of(klass) if klass
+    end
+  end
+
+  def should_redirect_to(description, &target)
+    it "redirects to #{description}" do
+      do_request
+      response.should redirect_to(instance_eval(&target))
+    end
+  end
+
+  def should_render(template)
+    it "should render the #{template} template" do
+      do_request
+      response.should render_template(template)
+    end
+  end
+
+  def should_set_the_flash_with(hash)
+    key = hash.keys.first
+    expected = hash[key]
+    behavior_description = "sets flash#{hash[:now] == true ? '.now' : ''}[#{key}] to #{expected.kind_of?(Regexp) ? 'match ' : ''}#{expected}"
+    it behavior_description do
+      @controller.instance_eval { flash.stub!(:sweep) } if hash[:now] == true
+      if hash[:now] == true
+        f = flash.method(:now)
+      else
+        f = method(:flash)
+      end
+      do_request
+      case expected
+      when String
+        f.call[key].should == expected
+      when Regexp
+        f.call[key].should match(expected)
+      end
+    end
+  end
+
   def get(action, parameters = nil, session = nil, flash = nil)
     define_method :do_request do
       send(:get, action, parameters.nil? ? parameters : instance_eval(&parameters), session, flash)
+    end
+    yield
+  end
+
+  def post(action, parameters = nil, session = nil, flash = nil)
+    define_method :do_request do
+      send(:post, action, parameters.nil? ? parameters : instance_eval(&parameters), session, flash)
     end
     yield
   end
@@ -92,7 +101,6 @@ Spec::Runner.configure do |config|
   config.use_instantiated_fixtures  = false
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
-  config.include(AssignMacro, :type => :controller)
   config.extend(ControllerMacros, :type => :controller)
 
   # == Fixtures
