@@ -32,11 +32,6 @@ describe PostsController, 'POST create' do
       should_set_the_flash_with :success => 'Post created successfully'
       should_redirect_to('the posts page') { posts_path }
     end
-
-    it 'redirects to the posts page' do
-      post :create
-      response.should redirect_to(posts_path)
-    end
   end
 
   context 'when the post fails to save' do
@@ -94,14 +89,9 @@ describe PostsController, 'PUT update' do
       put :update, :id => @post.id, :post => { :title => 'Modified Test Title', :body => 'Modified Test Body' }
     end
 
-    it 'sets the flash with a success message' do
-      put :update, :id => @post.id
-      flash[:success].should == 'Post updated successfully'
-    end
-
-    it 'redirects to the posts page' do
-      put :update
-      response.should redirect_to(posts_path)
+    put :update, lambda { {:id => @post.id} } do
+      should_set_the_flash_with :success => 'Post updated successfully'
+      should_redirect_to('the posts page') { posts_path }
     end
   end
 
@@ -112,6 +102,7 @@ describe PostsController, 'PUT update' do
 
     put :update, lambda { {:id => @post.id} } do
       should_render 'edit'
+      should_set_the_flash_with :error => 'There was a problem updating the post. Please correct any errors and try again.', :now => true
     end
   end
 end

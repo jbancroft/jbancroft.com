@@ -55,8 +55,8 @@ module ControllerMacros
     expected = hash[key]
     behavior_description = "sets flash#{hash[:now] == true ? '.now' : ''}[#{key}] to #{expected.kind_of?(Regexp) ? 'match ' : ''}#{expected}"
     it behavior_description do
-      @controller.instance_eval { flash.stub!(:sweep) } if hash[:now] == true
       if hash[:now] == true
+        @controller.instance_eval { flash.stub!(:sweep) }
         f = flash.method(:now)
       else
         f = method(:flash)

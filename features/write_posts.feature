@@ -34,3 +34,14 @@ Feature: Write posts
 		Then I should see "Post updated successfully"
 		And I should be on the posts page
 		And I should see "Modified Test Title"
+
+	Scenario: Edit existing post with invalid values
+		Given I have signed in with "author@example.com/authorpassword"
+		And a post with title "Test Title" and body "Test Body"
+		When I visit the edit page for the post
+		And I fill in "Title" with "Modified Test Title"
+		And I fill in "Body" with ""
+		And I press "Save"
+		Then I should see "There was a problem updating the post. Please correct any errors and try again."
+		And I should see a form for correcting the errors in the post
+		And the "Title" field should contain "Modified Test Title"
