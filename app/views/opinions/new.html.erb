@@ -1,0 +1,7 @@
+<% form_for :opinion do |f| %>
+  <%= f.label :content, 'Opinion' %>
+  <%= f.text_field :content %>
+  <%= f.label :topic %>
+  <%= f.text_field :topic %>
+  <%= f.submit 'Express Yourself!' %>
+<% end %>

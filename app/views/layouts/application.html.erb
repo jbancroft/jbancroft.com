@@ -1,12 +1,12 @@
 <html>
   <head>
+    <title>Developing Thoughts</title>
   </head>
   <body>
-    <div id="flash">
-      <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%= value %></div>
-      <% end -%>
-    </div>
+    <ul class="nav">
+      <li><%= link_to 'Post an Opinion', new_opinion_path %></li>
+    </ul>
+    <%= render :partial => 'shared/flashes' %>
     <%= yield %>
   </body>
 </html>

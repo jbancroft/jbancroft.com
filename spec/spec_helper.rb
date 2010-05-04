@@ -51,11 +51,12 @@ module ControllerMacros
   end
 
   def should_set_the_flash_with(hash)
+    now = hash.delete(:now)
     key = hash.keys.first
     expected = hash[key]
-    behavior_description = "sets flash#{hash[:now] == true ? '.now' : ''}[#{key}] to #{expected.kind_of?(Regexp) ? 'match ' : ''}#{expected}"
+    behavior_description = "sets flash#{now == true ? '.now' : ''}[#{key}] to #{expected.kind_of?(Regexp) ? 'match ' : ''}\"#{expected}\""
     it behavior_description do
-      if hash[:now] == true
+      if now == true
         @controller.instance_eval { flash.stub!(:sweep) }
         f = flash.method(:now)
       else

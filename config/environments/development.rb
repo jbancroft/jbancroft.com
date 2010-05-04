@@ -16,3 +16,9 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+#config.gem 'sqlite3-ruby'
+#config.gem 'cucumber-rails'
+#config.gem 'database_cleaner'
+#config.gem 'webrat'
+#config.gem 'rspec-rails'
