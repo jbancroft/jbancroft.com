@@ -1,4 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
+  # Override the default clearance user routes so we can add stuff.
+  map.resources :users, :controller => 'clearance/users' do |users|
+    users.resource :password,
+      :controller => 'clearance/passwords',
+      :only       => [:create, :edit, :update]
+
+    users.resource :confirmation,
+      :controller => 'clearance/confirmations',
+      :only       => [:new, :create]
+
+    users.resources :opinions
+  end
+
   Clearance::Routes.draw(map)
   # The priority is based upon order of creation: first created -> highest priority.
   map.blog '/blog', :controller => 'posts', :action => 'index'
@@ -24,7 +37,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments

@@ -7,7 +7,7 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new(params[:opinion])
     if @opinion.save
       flash[:success] = 'Thank you for contributing your opinion'
-      redirect_to opinion_path(@opinion)
+      redirect_to user_opinions_path(@opinion.author)
     else
       flash.now[:error] = 'A problem occurred while trying to save your opinion.  Please correct any errors and try again.'
       render 'new'

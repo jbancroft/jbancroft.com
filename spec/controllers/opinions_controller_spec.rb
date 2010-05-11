@@ -30,12 +30,16 @@ describe OpinionsController, 'POST create' do
   context 'when the opinion saves successfully' do
     before(:each) do
       @opinion.stub(:save).and_return(true)
+      @author = Factory(:email_confirmed_user)
+      @opinion.stub(:author).and_return(@author)
     end
 
     post :create do
       should_set_the_flash_with :success => 'Thank you for contributing your opinion'
-      should_redirect_to('the newly created opinion') { opinion_path(@opinion) }
+      should_redirect_to('the user\'s opinions page') { user_opinions_path(@author) }
     end
+
+
   end
 
   context 'when the opinion fails to save' do
