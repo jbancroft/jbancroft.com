@@ -39,7 +39,6 @@ describe OpinionsController, 'POST create' do
       should_redirect_to('the user\'s opinions page') { user_opinions_path(@author) }
     end
 
-
   end
 
   context 'when the opinion fails to save' do
