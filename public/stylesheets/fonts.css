@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'BankGothicMdBTMedium';
+  src: url('/fonts/bankgthd-webfont.eot');
+  src: local('☺'), url('/fonts/bankgthd-webfont.woff') format('woff'), url('/fonts/bankgthd-webfont.ttf') format('truetype'), url('/fonts/bankgthd-webfont.svg#webfontXoPzqqmU') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BebasRegular';
+  src: url('/fonts/bebas-webfont.eot');
+  src: local('☺'), url('/fonts/bebas-webfont.woff') format('woff'), url('/fonts/bebas-webfont.ttf') format('truetype'), url('/fonts/bebas-webfont.svg#webfont436go2TN') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CartoGothicStdBold';
+  src: url('/fonts/cartogothicstd-bold-webfont.eot');
+  src: local('☺'), url('/fonts/cartogothicstd-bold-webfont.woff') format('woff'), url('/fonts/cartogothicstd-bold-webfont.ttf') format('truetype'), url('/fonts/cartogothicstd-bold-webfont.svg#webfontIJFNXGDM') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CartoGothicStdBoldItalic';
+  src: url('/fonts/cartogothicstd-bolditalic-webfont.eot');
+  src: local('☺'), url('/fonts/cartogothicstd-bolditalic-webfont.woff') format('woff'), url('/fonts/cartogothicstd-bolditalic-webfont.ttf') format('truetype'), url('/fonts/cartogothicstd-bolditalic-webfont.svg#webfontsVgVJQs9') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CartoGothicStdItalic';
+  src: url('/fonts/cartogothicstd-italic-webfont.eot');
+  src: local('☺'), url('/fonts/cartogothicstd-italic-webfont.woff') format('woff'), url('/fonts/cartogothicstd-italic-webfont.ttf') format('truetype'), url('/fonts/cartogothicstd-italic-webfont.svg#webfont00nyh6bW') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CartoGothicStdBook';
+  src: url('/fonts/cartogothicstd-book-webfont.eot');
+  src: local('☺'), url('/fonts/cartogothicstd-book-webfont.woff') format('woff'), url('/fonts/cartogothicstd-book-webfont.ttf') format('truetype'), url('/fonts/cartogothicstd-book-webfont.svg#webfontBn4MSjVE') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+

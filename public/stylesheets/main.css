@@ -1,8 +1,9 @@
+
 .clearfix {overflow:auto;}
 
 body {
   text-align: center;
-  font-family: 'Droid Sans Mono', arial, sans-serif;
+  font-family: 'BankGothicMdBTMedium', arial, sans-serif;
   background-image: url('/images/background_gradient.png');
   background-repeat: repeat-x;
   margin: 0 8px;
@@ -21,6 +22,7 @@ body {
 #header h1 {
   color: #fff;
   margin: 16px 0;
+  text-transform: uppercase;
 }
 
 #nav_bar {
@@ -37,16 +39,18 @@ body {
   display: block;
   float: left;
   margin: 0 40px 0 0;
-  width: 80px;
+  text-align: center;
 }
 
 #nav_bar #nav li a {
+  display: block;
+  text-align: center;
   text-decoration: none;
   color: #afce67;
 }
 
 #content {
-  padding: 40px 20px;
+  padding: 20px 0;
 }
 
 .main_title {
@@ -66,4 +70,10 @@ body {
 
 .post {
   width: 580px;
+}
+
+.post_body {
+  background-color: #fff;
+  color: #646464;
+  padding: 10px 20px;
 }
