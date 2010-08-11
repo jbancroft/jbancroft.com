@@ -5,8 +5,12 @@ Feature: View posts
 	I want to view posts on the blog
 
 	Scenario: Show a list of all posts
-		Given a post with title "Test Title" and body "Test Body"
-		And a post with title "Test Title 2" and body "Test Body 2"
+		Given a post exists with the following attributes:
+    | Title | "Test Title" |
+    | Body  | "Test Body"  |
+		And a post exists with the following attributes:
+    | Title | "Test Title 2" |
+    | Body  | "Test Body 2"  |
 		When I go to the home page
 		Then I should see "Test Title"
 		And I should see "Test Body"
@@ -14,7 +18,10 @@ Feature: View posts
 		And I should not see "Test Body 2"
 
 	Scenario: Show a single post as html
-		Given a post with title "Test Title" and body "Test Body"
-		When I view the post
+		Given a post exists with the following attributes:
+    | Title | "Test Title" |
+    | Body  | "Test Body"  |
+		When I go to the home page
+    And I follow "Test Title"
 		Then I should see "Test Title"
 		And I should see "Test Body"

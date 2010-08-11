@@ -1,8 +1,18 @@
 <%- unless @posts.empty? -%>
   <%- first_post = @posts.shift -%>
-  <h3><%= first_post.title %></h3>
-  <div><%= first_post.body %></div>
-  <% @posts.each do |post| -%>
-    <h3><%= link_to post.title, post %></h3>
-  <%- end %>
+  <div class="clearfix">
+    <div class="post">
+      <div class="main_title">
+        <h3><%= link_to first_post.title, post_path(first_post) %></h3>
+      </div>
+      <div><%= first_post.body %></div>
+    </div>
+    <div class="right_bar">
+      <ul class="posts_menu">
+        <% @posts.each do |post| -%>
+          <li><h3><%= link_to post.title, post_path(post) %></h3></li>
+        <%- end %>
+      </ul>
+    </div>
+  </div>
 <%- end -%>

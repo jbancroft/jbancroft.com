@@ -1,0 +1,15 @@
+/* Grid */
+.one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.ten,.eleven,.twelve{display:inline;float:left;margin:0 10px;}
+.one{width:60px;}
+.two{width:140px;}
+.three{width:220px;}
+.four{width:300px;}
+.five{width:380px;}
+.six{width:460px;}
+.seven{width:540px;}
+.eight{width:620px;}
+.nine{width:700px;}
+.ten{width:780px;}
+.eleven{width:860px;}
+.twelve{width:940px;}
+

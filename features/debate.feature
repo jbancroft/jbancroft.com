@@ -2,6 +2,7 @@ Feature: citizens have a debate
 
 	A person expresses an opinion on a topic that they care about.  If the topic does not exist yet, it gets created and shows up at the top of the newest topics page.  Also, it is added to that person's stream of opinions.  Another person may respond to this opinion by offering a counter-argument, which sets up a debate.  Any number of users may post messages in response to something that somebody said in the debate, but once a user has posted an opinion for or against a particular side, they may not change sides unless they agree to let the system delete all of their previous posts in the debate.
 
+  @wip
 	Scenario: person expresses an opinion on a new topic
 		Given I have signed in with "person1@example.com/person1pass"
 		And I am on the home page
@@ -13,7 +14,7 @@ Feature: citizens have a debate
 		And the newest topic should be "Climate Change"
 		And my newest opinion should be "I think burning fossil fuels causes climate change." on the topic of "Climate Change"
 
-  @pending
+  @wip
 	Scenario: person expresses an opinion on an existing topic
 		Given a topic named "Climate Change"
 		And a topic named "Social Security"
@@ -26,7 +27,7 @@ Feature: citizens have a debate
 		And my newest opinion should be "I think burning fossil fuels causes climate change." on the topic of "Climate Change"
 		And the newest topic should be "Social Security"
 
-  @pending
+  @wip
 	Scenario: person responds to an opinion
 		Given I am signed up and confirmed as "person1@example.com/person1pass"
 		And a topic named "Climate Change"

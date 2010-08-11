@@ -1,3 +1,14 @@
+Factory.factories.each do |name, factory|
+  Given /^an? #{name} exists with the following attributes:$/ do |attrs_table|
+    attrs = {}
+    attrs_table.raw.each do |(attr, value)|
+      sanitized_attr = attr.gsub(/\s+/, "-").underscore
+    attrs[sanitized_attr.to_sym] = value
+    end
+    Factory(name, attrs)
+  end
+end
+
 Given /^a post with title "([^\"]*)" and body "([^\"]*)"$/ do |title, body|
   @post = Post.create!(:title => title, :body => body)
 end
