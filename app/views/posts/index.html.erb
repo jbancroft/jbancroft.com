@@ -1,18 +1,20 @@
 <%- unless @posts.empty? -%>
   <%- first_post = @posts.shift -%>
-  <div class="clearfix">
-    <div class="post">
-      <div class="main_title">
-        <h3><%= link_to first_post.title, post_path(first_post) %></h3>
-      </div>
-      <div class="post_body"><%= first_post.body %></div>
+  <div class="post">
+    <div class="main_title">
+      <h3><%= link_to first_post.title, post_path(first_post) %></h3>
     </div>
-    <div class="right_bar">
-      <ul class="posts_menu">
-        <% @posts.each do |post| -%>
-          <li><h3><%= link_to post.title, post_path(post) %></h3></li>
-        <%- end %>
-      </ul>
-    </div>
+    <div class="post_body"><%= first_post.body %></div>
   </div>
+  <%- content_for(:sidebar) do -%>
+    <div class="sub_title"><h3>{ Posts }</h3></div>
+    <ul class="posts_menu">
+      <% if signed_in? -%>
+        <li><%= link_to 'New Post', new_post_path %></li>
+      <%- end -%>
+      <% @posts.each do |post| -%>
+        <li><%= link_to post.title, post_path(post) %></li>
+      <%- end %>
+    </ul>
+  <%- end -%>
 <%- end -%>

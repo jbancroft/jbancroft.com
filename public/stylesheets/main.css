@@ -53,6 +53,31 @@ body {
   padding: 20px 0;
 }
 
+#sidebar {
+  width: 330px;
+  float: right;
+  background-color: #fff;
+}
+
+#sidebar div.sub_title {
+  background-color: #5c5c5c;
+  color: #7ba541;
+}
+
+#sidebar div.sub_title h3 {
+  margin: 0;
+  padding: 5px 20px;
+}
+
+#sidebar ul {
+  list-style-type: none;
+}
+
+#main {
+  width: 580px;
+  float: left;
+}
+
 .main_title {
   background-color: #c6da9b;
   color: #55722d;
@@ -66,10 +91,6 @@ body {
 .main_title h3 a {
   color: #55722d;
   text-decoration: none;
-}
-
-.post {
-  width: 580px;
 }
 
 .post_body {

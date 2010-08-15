@@ -1,10 +1,35 @@
 require 'spec_helper'
 
 describe 'layouts/application.html.erb' do
-  it 'displays the main navigation' do
+  it 'renders the main navigation' do
+    template.should_receive(:render).with(:partial => 'shared/nav')
     render
-    response.should have_selector('ul', :id => 'nav') do |nav|
-      nav.should have_selector('a', :href => new_opinion_path, :content => 'Post an Opinion')
+  end
+
+  it 'renders the flash' do
+    template.should_receive(:render).with(:partial => 'shared/flashes')
+    render
+  end
+
+  context 'when the user is signed out' do
+    before(:each) do
+      template.stub(:signed_in?).and_return(false)
+    end
+
+    it 'displays a sign in link' do
+      render
+      response.should have_selector('a', :href => sign_in_path, :content => '.sign in')
+    end
+  end
+
+  context 'when the user is signed in' do
+    before(:each) do
+      template.stub(:signed_in?).and_return(true)
+    end
+
+    it 'displays a sign out link' do
+      render
+      response.should have_selector('a', :href => sign_out_path, :content => '.sign out')
     end
   end
   

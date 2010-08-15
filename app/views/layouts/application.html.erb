@@ -2,7 +2,6 @@
   <head>
     <title>Developing Thoughts</title>
 
-    <%= stylesheet_link_tag('http://fonts.googleapis.com/css?family=Droid+Sans+Mono') %>
     <%= stylesheet_link_tag('fonts') %>
     <%= stylesheet_link_tag('grid') %>
     <%= stylesheet_link_tag('tools') %>
@@ -15,17 +14,15 @@
       <div id="header" class="clearfix">
         <h1 class="right">{ developing.thoughts }</h1>
       </div><!-- header -->
-      <div id="nav_bar">
-        <ul id="nav" class="clearfix">
-          <!-- <li><%= link_to 'Post an Opinion', new_opinion_path %></li> -->
-          <li><%= link_to '.thoughts', root_path %></li>
-          <li><%= link_to '.resume', '#' %></li>
-          <li><%= link_to '.login', sign_in_path %></li>
-        </ul>
-      </div><!-- nav_bar -->
+      <%= render :partial => 'shared/nav' %>
       <%= render :partial => 'shared/flashes' %>
-      <div id="content">
-        <%= yield %>
+      <div id="content" class="clearfix">
+        <div id="main">
+          <%= yield %>
+        </div>
+        <div id="sidebar">
+          <%= yield :sidebar %>
+        </div>
       </div>
     </div><!-- content_wrapper -->
   </body>

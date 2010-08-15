@@ -18,8 +18,4 @@ describe 'posts/index.html.erb' do
     response.should contain('First Post Body')
   end
 
-  it 'displays the title of the second post as a link' do
-    render
-    response.should have_selector('a', :href => post_path(assigns[:posts].last), :content => 'Second Post Title')
-  end
 end
