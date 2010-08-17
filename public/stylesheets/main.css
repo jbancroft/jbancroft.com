@@ -73,7 +73,19 @@ body {
 }
 
 #sidebar ul {
+  margin: 0;
+  padding: 1em 2em;
   list-style-type: none;
+  font-family: arial, sans-serif;
+  font-size: 1.2em;
+}
+
+#sidebar ul a {
+  color: #aebf88;
+}
+
+#sidebar ul a:hover {
+  color: #97a676;
 }
 
 #main {
@@ -101,8 +113,12 @@ body {
 .post_body {
   background-color: #fff;
   color: #646464;
-  padding: 10px 20px;
+  margin: 1.3em 2em;
   font-family: arial, sans-serif;
+}
+
+.post_body p {
+  margin-bottom: 1.3em;
 }
 
 .updated_at,.created_at {
@@ -115,6 +131,7 @@ body {
   padding: 10px 20px;
   font-family: arial, sans-serif;
   font-size: 1.3em;
+  color: #646464;
 }
 
 .resume ul.contact_info {

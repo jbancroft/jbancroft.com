@@ -3,7 +3,11 @@ require 'spec_helper'
 describe 'posts/index.html.erb' do
   before(:each) do
     assigns[:posts] = [
-      mock_model(Post, :title => 'First Post Title', :body => 'First Post Body', :created_at => 5.months.ago, :updated_at => 4.months.ago),
+      mock_model(Post,
+                 :title => 'First Post Title',
+                 :body => '__First Post Body__',
+                 :created_at => 5.months.ago,
+                 :updated_at => 4.months.ago),
       mock_model(Post, :title => 'Second Post Title')
     ]
   end
@@ -16,6 +20,11 @@ describe 'posts/index.html.erb' do
   it 'displays the body of the first post' do
     render
     response.should contain('First Post Body')
+  end
+
+  it 'renders the body using markdown' do
+    render
+    response.should have_selector('strong', :content => 'First Post Body')
   end
 
   it 'displays when the post was updated' do
