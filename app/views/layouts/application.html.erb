@@ -1,7 +1,10 @@
+<!DOCTYPE HTML>
 <html>
   <head>
     <title>Developing Thoughts</title>
 
+    <%= stylesheet_link_tag('reset') %>
+    <%= stylesheet_link_tag('typography') %>
     <%= stylesheet_link_tag('fonts') %>
     <%= stylesheet_link_tag('grid') %>
     <%= stylesheet_link_tag('tools') %>
@@ -17,12 +20,7 @@
       <%= render :partial => 'shared/nav' %>
       <%= render :partial => 'shared/flashes' %>
       <div id="content" class="clearfix">
-        <div id="main">
-          <%= yield %>
-        </div>
-        <div id="sidebar">
-          <%= yield :sidebar %>
-        </div>
+        <%= yield(:content) or yield %>
       </div>
     </div><!-- content_wrapper -->
   </body>

@@ -17,6 +17,8 @@ module NavigationHelpers
       new_post_path
     when /the posts page/i
       posts_path
+    when /the resume page/i
+      resume_path
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +

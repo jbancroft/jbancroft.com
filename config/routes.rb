@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   Clearance::Routes.draw(map)
   # The priority is based upon order of creation: first created -> highest priority.
   map.blog '/blog', :controller => 'posts', :action => 'index'
+  map.resume '/resume', :controller => 'home', :action => 'resume'
 
   map.resources :opinions
   map.resources :posts

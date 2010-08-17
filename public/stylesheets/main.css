@@ -1,11 +1,12 @@
 
-.clearfix {overflow:auto;}
+.clearfix {overflow:auto;padding-top:2px;padding-bottom:2px;}
 
 body {
   text-align: center;
   font-family: 'BankGothicMdBTMedium', arial, sans-serif;
   background-image: url('/images/background_gradient.png');
   background-repeat: repeat-x;
+  background-color: #55722d;
   margin: 0 8px;
 }
 
@@ -30,12 +31,12 @@ body {
   line-height: 29px;
 }
 
-#nav {
+#nav_bar #nav {
   margin: 0;
   padding: 0 0 0 20px;
 }
 
-#nav_bar ul#nav li {
+#nav_bar #nav li {
   display: block;
   float: left;
   margin: 0 40px 0 0;
@@ -47,6 +48,11 @@ body {
   text-align: center;
   text-decoration: none;
   color: #afce67;
+  font-size: 1.3em;
+}
+
+#nav_bar #nav li a:hover {
+  color: #fff;
 }
 
 #content {
@@ -59,14 +65,11 @@ body {
   background-color: #fff;
 }
 
-#sidebar div.sub_title {
+#sidebar .sub_title {
   background-color: #5c5c5c;
   color: #7ba541;
-}
-
-#sidebar div.sub_title h3 {
   margin: 0;
-  padding: 5px 20px;
+  padding: 12px 20px;
 }
 
 #sidebar ul {
@@ -82,19 +85,58 @@ body {
   background-color: #c6da9b;
   color: #55722d;
   padding: 16px 20px;
-}
-
-.main_title h3 {
   margin: 0;
 }
 
-.main_title h3 a {
+.main_title a {
   color: #55722d;
   text-decoration: none;
+}
+
+.post {
+  background-color: #fff;
+  color: #646464;
 }
 
 .post_body {
   background-color: #fff;
   color: #646464;
   padding: 10px 20px;
+  font-family: arial, sans-serif;
+}
+
+.updated_at,.created_at {
+  padding: 10px 20px;
+  font-style: italic;
+}
+
+.resume {
+  background-color: #fff;
+  padding: 10px 20px;
+  font-family: arial, sans-serif;
+  font-size: 1.3em;
+}
+
+.resume ul.contact_info {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px;
+}
+
+.resume ul {
+  padding-left: 26px;
+  margin-bottom: 0;
+}
+
+.resume ul li {
+  margin-bottom: 5px;
+}
+
+.job,.education {
+  line-height: 1.3em;
+  margin-bottom: 2em;
+}
+
+.company_name,.school_name {
+  font-weight: bold;
 }
