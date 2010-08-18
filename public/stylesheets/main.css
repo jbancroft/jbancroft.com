@@ -80,6 +80,10 @@ body {
   font-size: 1.2em;
 }
 
+#sidebar ul li {
+  margin: 1em 0;
+}
+
 #sidebar ul a {
   color: #aebf88;
 }

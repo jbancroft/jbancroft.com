@@ -24,11 +24,12 @@ Feature: Sign in
       Then I should see "Bad email or password"
       And I should be signed out
 
+   @focus
    Scenario: User signs in successfully
       Given I am signed up and confirmed as "email@person.com/password"
       When I go to the sign in page
       And I sign in as "email@person.com/password"
-      Then I should see "Signed in"
+      Then I should see "Signed in."
       And I should be signed in
       When I return next time
       Then I should be signed in
