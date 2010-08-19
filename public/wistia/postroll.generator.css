@@ -1,0 +1,30 @@
+.clearfix {overflow:auto;}
+.left {float:left;}
+.right {float:right;}
+.half {width:49%;}
+
+body {
+  text-align: center;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+.content_wrapper {
+  margin: 0 auto;
+  width: 950px;
+  text-align: left;
+}
+
+form label {
+  display: block;
+}
+
+#results {
+  display: none;
+}
+
+div.ui-dialog,div.ui-dialog-titlebar {
+  margin-bottom: 0;
+}

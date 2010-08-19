@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Wistia Post-Roll Generator by Jim Bancroft</title>
+
+    <link href="/wistia/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
+    <link href="/wistia/smallColorPicker.css" rel="stylesheet" type="text/css"/>
+    <link href="/wistia/postroll.generator.css" rel="stylesheet" type="text/css"/>
+
+    <script src="/wistia/jquery-1.4.2.min.js"></script>
+    <script src="/wistia/jquery-ui.1.8.4.min.js"></script>
+    <script src="/wistia/jquery.smallColorPicker.min.js"></script>
+
+    <script src="/wistia/postroll.generator.js"></script>
+    <script src="/wistia/postroll.ui.js"></script>
+  </head>
+  <body>
+    <div class="content_wrapper">
+      <h1>Wistia Post-Roll Generator</h1>
+      <div class="clearfix">
+        <div class="left half">
+          <form>
+            <div>
+              <label for="raw_input">First, paste your raw embedding code:</label>
+              <textarea id="raw_input" name="raw_input" rows="10" cols="54"></textarea>
+            </div>
+            <label>Next, select colors for your post-roll content:</label>
+            <div class="clearfix">
+              <div class="left">
+                <label for="fcolor">Foreground color:</label>
+                <input type="text" id="fcolor" name="fcolor" class="color_picker"/>
+              </div>
+              <div class="right">
+                <label for="bcolor">Background color:</label>
+                <input type="text" id="bcolor" name="bcolor" class="color_picker"/>
+              </div>
+            </div>
+            <div>
+              <label for="content">Use this box to specify the post-roll content:</label>
+              <textarea id="content" name="content" rows="10" cols="54"></textarea>
+            </div>
+            <div>
+              <label for="effect">Optionally, pick an effect to use when showing the post-roll:</label>
+              <select id="effect" name="effect">
+                <option value="">(None)</option>
+                <option value="blind">Blind</option>
+                <option value="clip">Clip</option>
+                <option value="drop">Drop</option>
+                <option value="explode">Explode</option>
+                <option value="fold">Fold</option>
+                <option value="puff">Puff</option>
+                <option value="slide">Slide</option>
+                <option value="scale">Scale</option>
+                <option value="size">Size</option>
+                <option value="pulsate">Pulsate</option>
+                <option value="bounce">Bounce</option>
+                <option value="highlight">Highlight</option>
+                <option value="shake">Shake</option>
+                <option value="transfer">Transfer</option>
+              </select>
+            </div>
+            <input type="button" id="generate_postroll" value="Generate Post-Roll"/>
+          </form>
+        </div>
+        <div class="right half">
+          <div>This is where your results will show up:</div>
+          <div id="results">
+            <label for="output_code">New Embed Code:</label>
+            <textarea id="output_code" name="output_code" rows="10" cols="54"></textarea>
+            <input type="button" id="test_button" value="Test New Code"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
