@@ -1,0 +1,120 @@
+%h2.main_title Resume
+.resume
+  %h3 James R. Bancroft
+  .resume_section
+    %ul.contact_info
+      %li= mail_to 'jim.bancroft@gmail.com'
+      %li Cell Phone: 609-313-5213
+      %li Lowell, MA
+  %h3 Objective
+  .resume_section To learn.
+  %h3 Profile
+  .resume_section
+    %ul
+      %li Special focus on developing network and web applications
+      %li Willing to travel if necessary
+      %li 3 years of experience programming web applications
+      %li 4 years of experience programming in the defense industry
+      %li 8 years of education in software development
+  %h3 Skills
+  .resume_section
+    %ul
+      %li<
+        %strong Programming Languages:
+        = " ActionScript, C/C++, C#, Java, JavaScript, PHP, Ruby, Visual Basic"
+      %li<
+        %strong Web Technologies:
+        = " AJAX, Flex, Spring, Rails, ASP.NET, J2EE, jQuery"
+      %li<
+        %strong Databases:
+        = " MySQL, Oracle, PostgreSQL, Microsoft Access, MS SQL Server"
+      %li<
+        %strong Operating Systems:
+        = " *nix, Mac OSX, Windows"
+  %h3 Work Experience
+  .job
+    .clearfix
+      .left<
+        %span.company_name Revolutionary Systems
+        = " South Plainfield, NJ"
+      .right October 2007 - June 2010
+    %div Web Developer
+    %ul
+      %li Worked on a project to rewrite an existing web CMS written in Java into Ruby on Rails (with expanded functionality)
+      %ul
+        %li Organized the code in such a way that optional features could be isolated from the core CMS, so that they could be included/excluded/modified based on individual clients' needs
+        %li Leveraged previous experience with open source web content management systems to introduce new and improved features into the project
+      %li Built a process-visualization application for clients to use on corporate intranets
+      %ul
+        %li Spearheaded an initiative to adopt Agile Software Development practices into the project team
+        %ul
+          %li Developed a suite of automated tests that helped to detect regressions and bugs
+          %li Helped introduce habit of participating in Daily Stand-up Meetings
+          %li Introduced the notion of iterative development and helped organize the project to follow a predictable cycle of releases
+        %li Introduced the following software/libraries into the code base:
+        %ul
+          %li Maven for managing builds
+          %li Flex/ActionScript front-end running on the client-side
+          %li FlexUnit for client-side automated testing
+          %li BlazeDS for sending domain objects between the client and a J2EE server
+          %li Spring for inversion of control and auto wiring collaborators on the server side
+          %li Hibernate for use as an ORM
+          %li JUnit for automated testing of server side code
+          %li Hudson for continuous integration
+          %li JIRA for ticket tracking
+        %li Designed most of the high level architecture of the application
+        %li Participated in all major phases of the Software Development Lifecycle
+      %li Developed several websites to give small business clients a web presence
+      %ul
+        %li Created a web CMS in Java to allow clients to customize the content of their site after delivery
+      %li Utilized the jQuery JavaScript framework to create several user interface enhancements
+      %ul
+        %li Adapted a drag and drop sortable to allow dynamic nesting of elements
+        %li Created a table interface that allowed arbitrary sorting and basic filtering functionality
+        %li Used AJAX techniques to do partial page updates to/from the server
+      %li Used JBoss and WebLogic Application Servers with MySQL and Oracle Databases
+      %li Developed a basic blogging application in JRuby on Rails
+      %ul
+        %li Included support for syntax highlighting of code examples
+        %li Collected usage statistics using Google Analytics
+  .job
+    .clearfix
+      .left<
+        %span.company_name Systems Documentation, Inc.
+        = " South Plainfield, NJ"
+      .right January 2007 - October 2007
+    %div Software Developer
+    %ul
+      %li Developed a database-driven web application to deliver training materials to warfighters
+      %ul
+        %li Researched various web frameworks such as Joomla and DotNetNuke to expedite development to meet an early initial deadline
+        %li After analyzing several different XML documentation standards that were required for certain content, set up a content repository for DITA files
+        %li Integrated the output of a third party XML content repository to be displayed within the framework of a DotNetNuke website - this effort required setting up IIS to Tomcat redirection because the aforementioned third party output assumed that a particular servlet was available if it was being run from a web server
+  .job
+    .clearfix
+      .left<
+        %span.company_name Frontier Technology, Inc.
+        = " Beverly, MA"
+      .right May 2003 - August 2006
+    %div Software Developement Intern
+    %ul
+      %li Validated and maintained a test plan for a set of tools used in data analysis to help with sensor calibration.  Brought several useful techniques to the attention of the rest of the team, since many of them were not primarily programmers
+      %ul
+        %li Instituted the use of source control through CVS to minimize confusion between project stakeholders
+        %li Helped set up a Bugzilla site for tracking bugs in the project
+      %li Developed an InstallShield installer for the existing set of tools
+      %ul
+        %li Documented the process of creating and packaging a new release on the integration machine so that any team member could deliver an update in short order
+      %li Developed a new set of software tools used in data analysis/calibration of surveillance satellite sensors from May, 2004 to August, 2006 (designed to replace the existing code base)
+      %li The existing set of tools was written in an obscure proprietary language that was slow, had little community support, and required source code to be distributed – the new application was developed in C++ using MFC
+      %ul
+        %li Identified areas of intense processing, isolating such code into worker threads, and developed a messaging framework to allow asynchronous updates to the GUI
+  %h3 Education
+  .education
+    .clearfix
+      .left<
+        %span.school_name Rensselaer Polytechnic Institute
+        = " Troy, NY"
+      .right Graduated December 2006
+    %div Bachelor of Science, Computer Science
+    %div Minors: Community and Health Psychology, Management and Technology

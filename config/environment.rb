@@ -18,8 +18,10 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
+  config.gem 'analytical'
   config.gem 'clearance'
   config.gem 'factory_girl'
+  config.gem 'haml'
   config.gem 'rdiscount'
 
   # Only load the plugins named here, in the order given (default is alphabetical).

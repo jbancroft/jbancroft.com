@@ -12,6 +12,8 @@ ActionController::Routing::Routes.draw do |map|
     users.resources :opinions
   end
 
+  map.sign_up 'sign_up', :controller => 'posts', :action => 'index'
+
   Clearance::Routes.draw(map)
   # The priority is based upon order of creation: first created -> highest priority.
   map.blog '/blog', :controller => 'posts', :action => 'index'
