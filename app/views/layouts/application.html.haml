@@ -11,6 +11,7 @@
     - analytical.identify current_user.id, :email => current_user.email if current_user
     = raw analytical.head_javascript
     = javascript_include_tag('main')
+    = yield :html_header
   %body
     = raw analytical.body_prepend_javascript
     #content_wrapper

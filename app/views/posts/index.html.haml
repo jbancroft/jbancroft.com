@@ -1,0 +1,18 @@
+- content_for(:html_header) do
+  = auto_discovery_link_tag(:atom)
+- unless @posts.empty?
+  - first_post = @posts.first
+  .post
+    %h2.main_title= link_to first_post.title, post_path(first_post)
+    .updated_at
+      Updated: #{time_ago_in_words first_post.updated_at} ago
+    .post_body= markdown first_post.body
+    .created_at
+      Created: #{time_ago_in_words first_post.created_at} ago
+  - content_for(:sidebar) do
+    %h3.sub_title { Posts }
+    %ul.posts_menu
+      - if signed_in?
+        %li= link_to 'New Post', new_post_path
+      - @posts.each do |post|
+        %li= link_to post.title, post_path(post)
