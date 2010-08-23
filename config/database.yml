@@ -22,7 +22,7 @@ production:
   pool: 5
   username: blog
   password: blog
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
 cucumber:
   <<: *TEST
