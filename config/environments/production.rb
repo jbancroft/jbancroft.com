@@ -27,3 +27,5 @@ config.action_mailer.default_url_options = { :host => 'jbancroft.com' }
 
 # Enable threaded mode
 # config.threadsafe!
+
+config.gem 'mysql'
