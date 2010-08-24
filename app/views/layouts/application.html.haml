@@ -1,13 +1,15 @@
 !!!
 %html
   %head
-    %title Developing Thoughts
+    %title= @html_title or 'Developing Thoughts'
     = stylesheet_link_tag('reset')
     = stylesheet_link_tag('typography')
     = stylesheet_link_tag('fonts')
     = stylesheet_link_tag('grid')
     = stylesheet_link_tag('tools')
     = stylesheet_link_tag('main')
+    = stylesheet_link_tag('print', :media => 'print')
+    = stylesheet_link_tag('custom_print', :media => 'print')
     - analytical.identify current_user.id, :email => current_user.email if current_user
     = raw analytical.head_javascript
     = javascript_include_tag('main')
@@ -17,10 +19,9 @@
     #content_wrapper
       #header.clearfix
         %h1.right { developing.thoughts }
-      / header
       = render :partial => 'shared/nav'
       = render :partial => 'shared/flashes'
       #content.clearfix
         = yield(:content) or yield
     / content_wrapper
-  = raw analytical.body_append_javascript
+    = raw analytical.body_append_javascript

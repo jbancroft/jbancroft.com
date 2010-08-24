@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authenticate, :only => [:new, :create, :edit, :update]
+
   def new
     @post = Post.new
   end
@@ -39,6 +41,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts = Post.all
     @post = Post.find(params[:id])
   end
 end

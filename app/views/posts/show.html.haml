@@ -1,2 +1,2 @@
-%h3= @post.title
-%div= @post.body
+= render :partial => 'post', :locals => { :post => @post }
+= render :partial => 'posts_menu', :locals => { :posts => @posts }

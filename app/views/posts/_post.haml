@@ -1,0 +1,7 @@
+.post
+  .main_title
+    %h2= link_to post.title, post_path(post)
+  .main_content
+    %p.updated_at Updated: #{time_ago_in_words post.updated_at} ago
+    .post_body= markdown post.body
+    %p.created_at Created: #{time_ago_in_words post.created_at} ago

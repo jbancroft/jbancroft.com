@@ -1,0 +1,6 @@
+- content_for(:sidebar) do
+  .posts_menu
+    %h3.sub_title { Posts }
+    %ul
+      - posts.each do |post|
+        %li= link_to post.title, post_path(post)

@@ -1,14 +1,16 @@
 %h2.main_title Resume
 .resume
+  .resume_section.printable_notice
+    = link_to_function 'Print', 'window.print();'
   %h3 James R. Bancroft
   .resume_section
     %ul.contact_info
       %li= mail_to 'jim.bancroft@gmail.com'
       %li Cell Phone: 609-313-5213
       %li Lowell, MA
-  %h3 Objective
+  %h4 Objective
   .resume_section To learn.
-  %h3 Profile
+  %h4 Profile
   .resume_section
     %ul
       %li Special focus on developing network and web applications
@@ -16,7 +18,7 @@
       %li 3 years of experience programming web applications
       %li 4 years of experience programming in the defense industry
       %li 8 years of education in software development
-  %h3 Skills
+  %h4 Skills
   .resume_section
     %ul
       %li<
@@ -31,11 +33,11 @@
       %li<
         %strong Operating Systems:
         = " *nix, Mac OSX, Windows"
-  %h3 Work Experience
+  %h4 Work Experience
   .job
     .clearfix
       .left<
-        %span.company_name Revolutionary Systems
+        %strong Revolutionary Systems
         = " South Plainfield, NJ"
       .right October 2007 - June 2010
     %div Web Developer
@@ -80,7 +82,7 @@
   .job
     .clearfix
       .left<
-        %span.company_name Systems Documentation, Inc.
+        %strong Systems Documentation, Inc.
         = " South Plainfield, NJ"
       .right January 2007 - October 2007
     %div Software Developer
@@ -93,7 +95,7 @@
   .job
     .clearfix
       .left<
-        %span.company_name Frontier Technology, Inc.
+        %strong Frontier Technology, Inc.
         = " Beverly, MA"
       .right May 2003 - August 2006
     %div Software Developement Intern
@@ -109,11 +111,11 @@
       %li The existing set of tools was written in an obscure proprietary language that was slow, had little community support, and required source code to be distributed – the new application was developed in C++ using MFC
       %ul
         %li Identified areas of intense processing, isolating such code into worker threads, and developed a messaging framework to allow asynchronous updates to the GUI
-  %h3 Education
+  %h4 Education
   .education
     .clearfix
       .left<
-        %span.school_name Rensselaer Polytechnic Institute
+        %strong Rensselaer Polytechnic Institute
         = " Troy, NY"
       .right Graduated December 2006
     %div Bachelor of Science, Computer Science

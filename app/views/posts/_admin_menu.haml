@@ -1,0 +1,5 @@
+.posts_admin_menu
+  %h3.sub_title { Post Admin Tools }
+  %ul
+    %li= link_to 'New', new_post_path
+    %li= link_to 'Edit', edit_post_path(@post) if @post
