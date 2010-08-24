@@ -3,3 +3,4 @@
   %ul
     %li= link_to 'New', new_post_path
     %li= link_to 'Edit', edit_post_path(@post) if @post
+    %li= link_to 'Delete', delete_post_path(@post) if @post

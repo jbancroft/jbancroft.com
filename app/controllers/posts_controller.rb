@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create, :edit, :update]
+  before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -23,10 +23,10 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
-      flash[:success] = 'Post updated successfully'
+      flash[:success] = 'Post updated successfully.'
       redirect_to posts_path
     else
-      flash.now[:error] = "There was a problem updating the post. Please correct any errors and try again."
+      flash.now[:error] = 'There was a problem updating the post. Please correct any errors and try again.'
       render :edit
     end
   end
@@ -43,5 +43,11 @@ class PostsController < ApplicationController
   def show
     @posts = Post.all
     @post = Post.find(params[:id])
+  end
+
+  def destroy
+    Post.destroy(params[:id])
+    flash[:success] = 'Post deleted successfully.'
+    redirect_to posts_path
   end
 end
