@@ -54,6 +54,23 @@ body {
   color: #fff;
 }
 
+.flash {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+}
+
+.success,.notice {
+  background-color: #a4bc71;
+  color: #006400;
+  border: solid 1px #006400;
+}
+
+.alert,.failure,.error {
+  background-color: #ffb6c1;
+  color: #8b0000;
+  border: solid 1px #8b0000;
+}
+
 #content {
   padding: 1.6em 0;
 }
@@ -181,4 +198,16 @@ body {
 .job,.education {
   line-height: 1.3em;
   margin-bottom: 1.6em;
+}
+
+.text_field {
+  margin-bottom: 1em;
+}
+
+.text_field label {
+  display: block;
+}
+
+.text_field .text {
+  width: 99%;
 }

@@ -2,6 +2,8 @@
 .resume
   .resume_section.printable_notice
     = link_to_function 'Print', 'window.print();'
+    = ' or '
+    = link_to 'Download', '/bancroft_resume.pdf'
   %h3 James R. Bancroft
   .resume_section
     %ul.contact_info

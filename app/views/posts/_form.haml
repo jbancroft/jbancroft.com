@@ -1,8 +1,8 @@
 - form_for @post do |f|
   .text_field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, :class => 'text'
   .text_field
     = f.label :body
-    = f.text_area :body
+    = f.text_area :body, :class => 'text'
   = f.submit 'Save'

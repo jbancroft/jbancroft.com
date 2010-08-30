@@ -2,5 +2,5 @@
   %h3.sub_title { Post Admin Tools }
   %ul
     %li= link_to 'New', new_post_path
-    %li= link_to 'Edit', edit_post_path(@post) if @post
-    %li= link_to 'Delete', delete_post_path(@post) if @post
+    %li= link_to 'Edit', edit_post_path(@post) if @post && !@post.new_record?
+    %li= link_to 'Delete', post_path(@post), :method => :delete, :confirm => 'Are you sure you want to delete this post?' if @post && !@post.new_record?
