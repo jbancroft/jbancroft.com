@@ -2,6 +2,6 @@
   .main_title
     %h2= link_to post.title, post_path(post)
   .main_content
-    %p.updated_at Updated: #{time_ago_in_words post.updated_at} ago
+    %p.updated_at{ :title => post.updated_at.strftime("%m/%d/%Y %I:%M:%S %p") } Updated: #{time_ago_in_words post.updated_at} ago
     .post_body= markdown post.body
-    %p.created_at Created: #{time_ago_in_words post.created_at} ago
+    %p.created_at{ :title => post.created_at.strftime("%m/%d/%Y %I:%M:%S %p") } Created: #{time_ago_in_words post.created_at} ago
