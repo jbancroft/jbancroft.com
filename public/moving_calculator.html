@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>Easy Days Moving Calculator</title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/moving_calculator.css"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+
+    <script src="/javascripts/moving_calculator.js"></script>
+  </head>
+  <body>
+    <div id="content_wrapper">
+      <div id="service_type_section">
+        <div>What kind of service do you need?</div>
+        <div>
+          <input id="load_only" type="radio" name="service_type" value="load_only" checked="checked"/>
+          <label for="load_only">Load Only</label>
+        </div>
+        <div>
+          <input id="unload_only" type="radio" name="service_type" value="unload_only"/>
+          <label for="unload_only">Unload Only</label>
+        </div>
+        <div>
+          <input id="load_unload" type="radio" name="service_type" value="load_unload"/>
+          <label for="load_unload">Both</label>
+        </div>
+      </div>
+      <div id="vehicle_size_section">
+        <div>How big is the vehicle?</div>
+        <select id="vehicle_size" name="vehicle_size">
+          <option value="10">10 ft.</option>
+          <option value="14">14 ft.</option>
+          <option value="17">17 ft.</option>
+          <option value="24">24 ft.</option>
+          <option value="26">26 ft.</option>
+        </select>
+      </div>
+      <div id="percent_full_section">
+        <div>How full do you expect the vehicle to be when everything is loaded?</div>
+        <select id="percent_full" name="percent_full">
+          <option value="10">10%</option>
+          <option value="20">20%</option>
+          <option value="30">30%</option>
+          <option value="40">40%</option>
+          <option value="50">50%</option>
+          <option value="60">60%</option>
+          <option value="70">70%</option>
+          <option value="80">80%</option>
+          <option value="90">90%</option>
+          <option value="100" selected="selected">100%</option>
+        </select>
+      </div>
+      <div id="elevator_section">
+        <label for="elevator">Are we using an elevator?</label>
+        <input type="checkbox" id="elevator" name="elevator"/>
+      </div>
+      <div id="floors_section">
+        <div>How many floors above ground level?</div>
+        <input type="text" id="floors" name="floors" value="0"/>
+      </div>
+      <div id="truck_distance_section">
+        <div>How many feet away from the door is the truck?</div>
+        <select id="truck_distance" name="truck_distance">
+          <option value="50">0-50 ft.</option>
+          <option value="100">51-100 ft.</option>
+          <option value="150">101-150 ft.</option>
+          <option value="200">151-200 ft.</option>
+        </select>
+      </div>
+      <div id="disassembly_section">
+        <div>How many pieces of furniture need disassembly/reassembly? (Note: We generally do not reassemble a piece unless we were the ones who disassembled it in the first place)</div>
+        <input type="text" id="disassembly" name="disassembly" value="0"/>
+      </div>
+      <div id="chowder_section">
+        <div>How many non-boxed items, open boxes, or poorly packaged items?</div>
+        <input type="text" id="chowder" name="chowder" value="0"/>
+      </div>
+      <div id="movers_section">
+        <div>How many movers do you want on the job?</div>
+        <select id="movers" name="movers">
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+      <div>Your estimated time:</div>
+      <div class="result">30 minutes</div>
+    </div>
+  </body>
+</html>

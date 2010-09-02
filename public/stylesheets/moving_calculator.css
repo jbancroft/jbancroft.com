@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+}
+
+#content_wrapper {
+  width: 950px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.result {
+  font-size: 3em;
+  color: #32CD32;
+}
