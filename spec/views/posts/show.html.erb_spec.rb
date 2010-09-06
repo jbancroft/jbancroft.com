@@ -1,8 +1,10 @@
 require 'spec_helper'
 
-describe 'posts/show.html.erb' do
+describe 'posts/show.html.haml' do
   before(:each) do
-    assigns[:post] = stub('Post').as_null_object
+    the_post = stub_model(Post, :created_at => 4.months.ago, :updated_at => 2.days.ago).as_null_object
+    assigns[:post] = the_post
+    assigns[:posts] = [the_post]
   end
 
   it 'displays the title of the post' do

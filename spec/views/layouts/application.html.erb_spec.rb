@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'layouts/application.html.erb' do
+describe 'layouts/application.html.haml' do
   it 'renders the main navigation' do
     template.should_receive(:render).with(:partial => 'shared/nav')
     render

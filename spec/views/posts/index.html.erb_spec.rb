@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'posts/index.html.erb' do
+describe 'posts/index.html.haml' do
   before(:each) do
     assigns[:posts] = [
       mock_model(Post,
