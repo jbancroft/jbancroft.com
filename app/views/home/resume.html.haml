@@ -1,41 +1,62 @@
 %h2.main_title Resume
 .resume
   .resume_section.printable_notice
-    = link_to_function 'Print', 'window.print();'
-    = ' or '
-    = link_to 'Download', '/bancroft_resume.pdf'
+    = link_to_function 'Print/Save', 'window.print();'
   %h3 James R. Bancroft
   .resume_section
     %ul.contact_info
       %li= mail_to 'jim.bancroft@gmail.com'
-      %li Cell Phone: 609-313-5213
-      %li Lowell, MA
+      %li Somerville, MA
   %h4 Objective
   .resume_section To learn.
   %h4 Profile
   .resume_section
     %ul
-      %li Special focus on developing network and web applications
-      %li Willing to travel if necessary
-      %li 3 years of experience programming web applications
-      %li 4 years of experience programming in the defense industry
+      %li Special focus on developing web-scale software
+      %li 6 years of experience programming web applications
+      %li 7 years of experience in data analysis
       %li 8 years of education in software development
-  %h4 Skills
+      %li Willing to travel if necessary
+  %h4 Interests
   .resume_section
     %ul
       %li<
         %strong Programming Languages:
-        = " ActionScript, C/C++, C#, Java, JavaScript, PHP, Ruby, Visual Basic"
+        = " Go, OCaml, Python, Ruby, JavaScript, C/C++"
       %li<
-        %strong Web Technologies:
-        = " AJAX, Flex, Spring, Rails, ASP.NET, J2EE, jQuery"
+        %strong Distributed Technologies:
+        = " Information Procesing/Storage, Operational Risk Management, Performance Optimization"
       %li<
         %strong Databases:
-        = " MySQL, Oracle, PostgreSQL, Microsoft Access, MS SQL Server"
+        = " PostgreSQL, Riak, Cassandra"
       %li<
         %strong Operating Systems:
-        = " *nix, Mac OSX, Windows"
+        = " *nix, Mac OSX, iOS"
   %h4 Work Experience
+  .job
+    .clearfix
+      .left<
+        %strong Wistia, Inc.
+        = " Somerville, MA"
+      .right September 2010 - October 2013
+    %div Senior Software Developer
+    %ul
+      %li First full time Rails developer hired by the company (5th full time employee including founders)
+      %li Started and oversaw an internal training program whereby non-technical employees could learn how to code
+      %li Designed, implemented, and maintained an analytics architecture based on a previous prototype
+      %ul
+        %li Scaled tracking of data from 100 million to 1.6 billion videos loaded over a 2 year span
+        %li Pricing studies showed this system to be one of the most highly valued features by our customers
+      %li Recruited the 2nd and 3rd full time developers at the company
+      %li As of October 2013, designed and documented 3 out of 6 <a href="http://wistia.com/doc/developers">APIs published by the company</a>
+      %ul
+        %li Data API - the first API we published, giving basic access to information about videos in your account
+        %li Stats API - an extension to the data API that provides better access to our analytics
+        %li Upload API - allows customers to programmatically upload video into their Wistia account
+      %li Wrote significant parts of the company's billing system
+      %li Built the backend that powers the company's Video SEO feature
+      %li Designed and wrote the <a href="http://wistia.com/learning">Learning Center</a> which is a standalone Rails application built on our other APIs 
+      %li Built several internal tools for reporting typical SaaS metrics
   .job
     .clearfix
       .left<
